@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="viewport" content="width=800">
+  <title>Keith's Home Page on the World Wide Web!!!</title>
+  <style>
+    body {
+      background-color: #000033;
+      background-image: radial-gradient(white 1px, transparent 1px),
+                        radial-gradient(white 1px, transparent 1px);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+      color: #FFFFFF;
+      font-family: "Times New Roman", Times, serif;
+      margin: 0;
+      padding: 8px;
+    }
+
+    a { color: #00FFFF; }
+    a:visited { color: #FF77FF; }
+    a:hover { color: #FFFF00; }
+
+    #wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    #header {
+      background: #000080;
+      border: 4px ridge #AAAAAA;
+      text-align: center;
+      padding: 10px 4px 6px;
+      margin-bottom: 6px;
+    }
+
+    #header h1 {
+      font-family: Arial Black, Arial, sans-serif;
+      font-size: 28px;
+      margin: 0 0 4px;
+      background: linear-gradient(to right, #FF0000, #FF8800, #FFFF00, #00FF00, #00FFFF, #FF00FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      filter: drop-shadow(2px 2px 0px #000000);
+    }
+
+    #header .subtitle {
+      font-size: 12px;
+      color: #FFFF99;
+      font-family: Arial, sans-serif;
+      letter-spacing: 2px;
+    }
+
+    /* ── Marquee ── */
+    .marquee-wrap {
+      background: #000000;
+      border-top: 2px solid #FFFF00;
+      border-bottom: 2px solid #FFFF00;
+      overflow: hidden;
+      padding: 3px 0;
+      margin-bottom: 6px;
+    }
+    .marquee-inner {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scroll-left 18s linear infinite;
+      color: #FFFF00;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    @keyframes scroll-left {
+      0%   { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ── Rainbow HR ── */
+    hr.rainbow {
+      height: 5px;
+      border: none;
+      background: linear-gradient(to right,
+        #FF0000, #FF8800, #FFFF00, #00FF00, #00CCFF, #8800FF);
+      margin: 6px 0;
+    }
+
+    /* ── Layout table ── */
+    #layout {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    /* ── Left nav ── */
+    #nav {
+      width: 130px;
+      flex-shrink: 0;
+      background: #000055;
+      border: 3px ridge #AAAAAA;
+      padding: 6px 4px;
+    }
+
+    #nav .nav-title {
+      background: #CC0000;
+      color: #FFFFFF;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+      padding: 3px;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    .nav-btn {
+      display: block;
+      background: #000099;
+      border: 3px outset #8888CC;
+      color: #FFFF00;
+      text-decoration: none;
+      padding: 4px 6px;
+      margin: 4px 0;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+    }
+    .nav-btn:hover {
+      border-style: inset;
+      background: #0000CC;
+      color: #FFFFFF;
+    }
+    .nav-btn:visited { color: #FFFF00; }
+
+    #nav .counter-box {
+      background: #000000;
+      border: 2px inset #888888;
+      text-align: center;
+      padding: 5px 3px;
+      margin-top: 10px;
+    }
+    #nav .counter-box .counter-label {
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      color: #AAAAAA;
+      letter-spacing: 1px;
+    }
+    #nav .counter-num {
+      font-family: "Courier New", monospace;
+      font-size: 20px;
+      color: #00FF00;
+      letter-spacing: 3px;
+      display: block;
+    }
+
+    #nav .award {
+      margin-top: 8px;
+      background: #660000;
+      border: 2px solid #FFCC00;
+      padding: 5px 3px;
+      text-align: center;
+      font-size: 10px;
+      color: #FFCC00;
+      font-family: Arial, sans-serif;
+    }
+    #nav .award span { font-size: 20px; display: block; }
+
+    /* ── Main content ── */
+    #content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .panel {
+      background: #000044;
+      border: 3px ridge #8888CC;
+      margin-bottom: 8px;
+      padding: 0;
+    }
+
+    .panel-header {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 4px 8px;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+    }
+    .panel-header.red    { background: #CC0000; }
+    .panel-header.blue   { background: #0000AA; }
+    .panel-header.green  { background: #006600; }
+    .panel-header.purple { background: #660099; }
+
+    .panel-body {
+      padding: 8px 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .new-badge {
+      display: inline-block;
+      background: #FF0000;
+      color: #FFFF00;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 1px 4px;
+      margin-left: 4px;
+      animation: blink-new 0.9s step-start infinite;
+      vertical-align: middle;
+    }
+    @keyframes blink-new {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    .under-construction {
+      text-align: center;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .construction-sign {
+      display: inline-block;
+      background: #FFCC00;
+      color: #000000;
+      border: 4px solid #000000;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: bold;
+      transform: rotate(-2deg);
+      letter-spacing: 1px;
+    }
+
+    /* ── Interests grid ── */
+    .interest-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+    .interest-list li {
+      background: #000066;
+      border-left: 4px solid #00FFFF;
+      padding: 3px 6px;
+      font-size: 13px;
+    }
+    .interest-list li::before {
+      content: "► ";
+      color: #00FFFF;
+      font-size: 10px;
+    }
+
+    /* ── Links section ── */
+    .link-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .link-list li {
+      border-bottom: 1px dotted #444488;
+      padding: 4px 0;
+      font-size: 13px;
+    }
+    .link-list li:last-child { border-bottom: none; }
+    .link-desc {
+      color: #AAAACC;
+      font-size: 11px;
+      font-style: italic;
+    }
+
+    /* ── Updates ── */
+    .update-item {
+      border-left: 3px solid #FFFF00;
+      padding: 3px 8px;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+    .update-date {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      color: #FFFF00;
+      font-weight: bold;
+    }
+
+    /* ── Footer ── */
+    #footer {
+      background: #000000;
+      border: 2px ridge #666666;
+      text-align: center;
+      padding: 8px;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      color: #AAAAAA;
+      margin-top: 6px;
+    }
+    #footer .copyline {
+      color: #777799;
+      margin-top: 4px;
+    }
+    #footer .browser-note {
+      color: #556655;
+      font-size: 9px;
+      margin-top: 3px;
+    }
+
+    .email-link {
+      display: inline-block;
+      background: #003300;
+      border: 2px outset #00AA00;
+      color: #00FF00;
+      font-family: monospace;
+      font-size: 12px;
+      padding: 3px 8px;
+      text-decoration: none;
+    }
+    .email-link:hover { border-style: inset; color: #AAFFAA; }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+
+  <!-- Header -->
+  <div id="header">
+    <h1>&#9733; Keith's Home Page on the Web! &#9733;</h1>
+    <div class="subtitle">* WELCOME TO MY CORNER OF THE INTERNET *</div>
+  </div>
+
+  <!-- Scrolling marquee -->
+  <div class="marquee-wrap">
+    <span class="marquee-inner">
+      &#9658;&nbsp; Welcome, visitor! &nbsp;&#9658;&nbsp;
+      You are visitor number 004,291 &nbsp;&#9658;&nbsp;
+      This page is best viewed at 800x600 &nbsp;&#9658;&nbsp;
+      Last updated: April 1998 &nbsp;&#9658;&nbsp;
+      Sign my guestbook!! &nbsp;&#9658;&nbsp;
+      Netscape Navigator 4.0 recommended &nbsp;&#9658;
+    </span>
+  </div>
+
+  <hr class="rainbow">
+
+  <div id="layout">
+
+    <!-- Left navigation -->
+    <div id="nav">
+      <div class="nav-title">&#9660; NAVIGATE &#9660;</div>
+      <a class="nav-btn" href="#about">&#127968; Home</a>
+      <a class="nav-btn" href="#about">&#128100; About Me</a>
+      <a class="nav-btn" href="#interests">&#9829; Interests</a>
+      <a class="nav-btn" href="#links">&#127758; Cool Links</a>
+      <a class="nav-btn" href="#updates">&#128240; Updates</a>
+      <a class="nav-btn" href="#contact">&#128140; Guestbook</a>
+      <a class="nav-btn" href="#contact">&#9993; Email Me!</a>
+
+      <div class="counter-box">
+        <div class="counter-label">VISITORS</div>
+        <span class="counter-num">004291</span>
+      </div>
+
+      <div class="award">
+        <span>&#127942;</span>
+        Cool Site<br>of the Week!
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="content">
+
+      <!-- About Me -->
+      <div class="panel" id="about">
+        <div class="panel-header red">&#9658; ABOUT ME</div>
+        <div class="panel-body">
+          <p>
+            Hey there and <b><i>WELCOME</i></b> to my home page!! My name is <b>Keith</b>
+            and I live on the World Wide Web right here at this very address you are
+            visiting RIGHT NOW! Pretty cool huh??
+          </p>
+          <p>
+            I am into <b>computers</b>, <b>the internet</b>, and <b>lots of other stuff</b>
+            (check out my Interests section below!). I made this page all by myself using
+            <i>Notepad</i> and a whole lot of patience. Feel free to look around and
+            <a href="#contact">sign my guestbook</a> before you leave!!
+          </p>
+          <p style="text-align:center">
+            <span style="font-size:40px">&#128512;</span><br>
+            <small style="color:#AAAACC; font-size:11px; font-style:italic;">
+              (actual photo coming soon, scanner is broken lol)
+            </small>
+          </p>
+        </div>
+      </div>
+
+      <!-- Recent Updates -->
+      <div class="panel" id="updates">
+        <div class="panel-header blue">
+          &#9658; WHAT'S NEW
+          <span class="new-badge">NEW!</span>
+        </div>
+        <div class="panel-body">
+          <div class="update-item">
+            <div class="update-date">April 14, 1998</div>
+            Added my Cool Links section. Check it out!!
+          </div>
+          <div class="update-item">
+            <div class="update-date">March 29, 1998</div>
+            Put up my Interests page finally. Only took me two months haha
+          </div>
+          <div class="update-item">
+            <div class="update-date">February 3, 1998</div>
+            <span class="new-badge">NEW!</span>&nbsp;
+            Home page is LIVE!! Tell your friends!!
+          </div>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="panel" id="interests">
+        <div class="panel-header green">&#9658; MY INTERESTS &amp; HOBBIES</div>
+        <div class="panel-body">
+          <p style="margin-top:0">Here are some of the things I am way into right now:</p>
+          <ul class="interest-list">
+            <li>Computers &amp; the 'Net</li>
+            <li>Music (all kinds!)</li>
+            <li>Movies &amp; TV</li>
+            <li>Video Games</li>
+            <li>Reading (sci-fi mostly)</li>
+            <li>Web Design</li>
+            <li>Pizza &#127829;</li>
+            <li>Hanging out IRL</li>
+          </ul>
+          <div class="under-construction" style="margin-top:10px">
+            <div class="construction-sign">
+              &#9888; UNDER CONSTRUCTION &#9888;<br>
+              <small>More stuff coming soon!!</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cool Links -->
+      <div class="panel" id="links">
+        <div class="panel-header purple">&#9658; COOL LINKS ON THE WEB</div>
+        <div class="panel-body">
+          <p style="margin-top:0; font-size:12px; color:#AAAACC; font-style:italic;">
+            Here are some of my favorite spots on the information superhighway:
+          </p>
+          <ul class="link-list">
+            <li>
+              <a href="#">Yahoo!</a>
+              <span class="new-badge">HOT</span><br>
+              <span class="link-desc">The best search engine on the web, period.</span>
+            </li>
+            <li>
+              <a href="#">AltaVista</a><br>
+              <span class="link-desc">When Yahoo can't find it, AltaVista will.</span>
+            </li>
+            <li>
+              <a href="#">Netscape</a><br>
+              <span class="link-desc">Get the best browser here. Ditch IE!!</span>
+            </li>
+            <li>
+              <a href="#">GeoCities</a><br>
+              <span class="link-desc">Free web hosting for everyone. This is where it's at.</span>
+            </li>
+            <li>
+              <a href="#">MP3.com</a>
+              <span class="new-badge">NEW!</span><br>
+              <span class="link-desc">Free music!! The record labels HATE this site lol</span>
+            </li>
+            <li>
+              <a href="#">Slashdot</a><br>
+              <span class="link-desc">News for nerds. Stuff that matters.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact / Guestbook -->
+      <div class="panel" id="contact">
+        <div class="panel-header red">&#9658; SIGN MY GUESTBOOK &amp; CONTACT ME</div>
+        <div class="panel-body" style="text-align:center">
+          <p>
+            &#128071; Did you enjoy my page? <b>Please sign my guestbook!!</b> &#128071;<br>
+            It means a lot to me to know people are actually visiting!! &#128512;
+          </p>
+          <p>
+            <a href="#" style="font-family:Arial,sans-serif; font-size:13px; font-weight:bold; background:#006600; border:3px outset #00BB00; color:#FFFF00; padding:5px 14px; text-decoration:none; display:inline-block;">&#9998; SIGN THE GUESTBOOK</a>
+            &nbsp;&nbsp;
+            <a href="#" style="font-family:Arial,sans-serif; font-size:13px; font-weight:bold; background:#000066; border:3px outset #4444CC; color:#FFFF00; padding:5px 14px; text-decoration:none; display:inline-block;">&#128214; VIEW GUESTBOOK</a>
+          </p>
+          <hr class="rainbow" style="margin:10px 0">
+          <p style="margin-bottom:4px">You can also reach me by electronic mail:</p>
+          <a class="email-link" href="mailto:keith@somewhere.net">keith@somewhere.net</a>
+          <p style="font-size:11px; color:#888899; margin-top:6px; font-style:italic;">
+            (I check it like every other day so be patient lol)
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /layout -->
+
+  <hr class="rainbow">
+
+  <!-- Footer -->
+  <div id="footer">
+    <div>
+      This page has been visited <b style="color:#00FF00">4,291</b> times since February 1998
+    </div>
+    <div class="copyline">
+      &copy; 1998 Keith &mdash; All Rights Reserved &mdash; Do Not Steal My HTML!!
+    </div>
+    <div class="browser-note">
+      Best viewed in Netscape Navigator 4.0 at 800&times;600 resolution with 16-bit color
+    </div>
+  </div>
+
+</div><!-- /wrapper -->
+</body>
+</html>
