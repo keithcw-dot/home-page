@@ -109,6 +109,8 @@
     }
     #navlinks a:last-child { border-right: none; }
     #navlinks a:hover { background: #FFEA44; color: #000000; text-decoration: none; }
+    #navlinks a.active { background: #AA8C00; color: #FFFFFF; }
+    #navlinks a.active:visited { color: #FFFFFF; }
 
     /* ── Content row ── */
     #content-row {
@@ -160,6 +162,7 @@
       text-align: center;
       padding: 6px 4px;
       border-right: 1px solid #EEEEEE;
+      cursor: pointer;
     }
     .icon-cell:last-child { border-right: none; }
     .icon-cell a {
@@ -181,22 +184,11 @@
       image-rendering: crisp-edges;
     }
 
-    /* ── Two-column content ── */
-    #two-col {
-      display: flex;
-      gap: 0;
-      margin-top: 4px;
-    }
-    .col {
-      flex: 1;
-      min-width: 0;
-    }
-    .col-left {
-      padding-right: 10px;
-      border-right: 1px solid #EEEEEE;
-    }
-    .col-right { padding-left: 10px; }
+    /* ── Panels ── */
+    .panel { display: none; }
+    .panel.active { display: block; }
 
+    /* ── Section content ── */
     .section-head {
       color: #CC3300;
       font-weight: bold;
@@ -212,6 +204,16 @@
     .link-list { list-style: none; }
     .link-list li { padding: 2px 0; border-bottom: 1px dotted #CCCCCC; }
     .link-list li:last-child { border: none; }
+
+    /* ── Two-column layout (home panel) ── */
+    .two-col {
+      display: flex;
+      gap: 0;
+      margin-top: 4px;
+    }
+    .col { flex: 1; min-width: 0; }
+    .col-left { padding-right: 10px; border-right: 1px solid #EEEEEE; }
+    .col-right { padding-left: 10px; }
 
     /* ── Partners ── */
     #partners {
@@ -277,19 +279,11 @@
        RESPONSIVE
     ════════════════════════════════ */
     @media (max-width: 600px) {
-      /* Hide the sidebar column cells in top/nav rows */
-      #sponsor-cell,
-      #nav-widget { display: none; }
+      #sponsor-cell, #nav-widget { display: none; }
 
-      /* Banner stacks */
-      #banner-cell {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
+      #banner-cell { flex-direction: column; align-items: flex-start; gap: 4px; }
       #banner-cell .right { text-align: left; }
 
-      /* Nav links wrap */
       #navlinks a {
         font-size: 10px;
         padding: 6px 8px;
@@ -298,7 +292,6 @@
         border-bottom: 1px solid #AA8C00;
       }
 
-      /* Content row stacks: main first, sidebar below */
       #content-row { flex-direction: column; }
       #sidebar {
         width: 100%;
@@ -309,29 +302,24 @@
         flex-wrap: wrap;
         gap: 6px;
         padding: 8px;
-        background: #F2F2F2;
       }
       #sidebar .sbox { flex: 1 1 140px; margin-bottom: 0; }
       #sidebar > div:last-child { width: 100%; text-align: center; }
       #main { order: 1; width: 100%; }
 
-      /* Logo */
       #logo h1 { font-size: 20px; }
       #logo .tagline { letter-spacing: 3px; }
 
-      /* Icon nav: 2×2 */
       #icon-nav { grid-template-columns: repeat(2, 1fr); }
       .icon-cell { border-bottom: 1px solid #EEEEEE; }
       .icon-cell:nth-child(2) { border-right: none; }
       .icon-cell:nth-child(3) { border-bottom: none; }
       .icon-cell:nth-child(4) { border-right: none; border-bottom: none; }
 
-      /* Two cols stack */
-      #two-col { flex-direction: column; }
+      .two-col { flex-direction: column; }
       .col-left { padding-right: 0; border-right: none; padding-bottom: 10px; border-bottom: 1px solid #EEEEEE; }
       .col-right { padding-left: 0; padding-top: 10px; }
 
-      /* Partners: 3 cols */
       #partner-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
@@ -339,7 +327,7 @@
 <body>
 <div id="page">
 
-  <!-- Top banner row -->
+  <!-- Top banner -->
   <div id="top-row">
     <div id="sponsor-cell">
       <div class="sbox">
@@ -356,34 +344,35 @@
       </div>
       <div class="right">
         <b>2D &bull; 3D &bull; Stage Props</b><br>
-        <a href="#projects">see the work &raquo;</a>
+        <a href="#2d">see the work &raquo;</a>
       </div>
     </div>
   </div>
 
-  <!-- Nav row -->
+  <!-- Nav bar -->
   <div id="nav-row">
     <div id="nav-widget">
       <div class="sbox">
         <div class="sbox-title">GO TO SECTION</div>
         <div class="sbox-body" style="text-align:center;">
-          <select style="font-size:10px; width:100%; margin-bottom:3px;">
-            <option>About Me</option>
-            <option>Projects</option>
-            <option>Cool Links</option>
-            <option>Contact</option>
-          </select><br>
-          <input type="button" value="Go!" style="font-size:10px; padding:1px 8px; margin-top:2px;">
+          <select id="nav-select" style="font-size:10px; width:100%; margin-bottom:3px;">
+            <option value="home">Home</option>
+            <option value="about">About Me</option>
+            <option value="2d">2D</option>
+            <option value="3d">3D</option>
+            <option value="props">Stage Props</option>
+            <option value="links">Cool Links</option>
+          </select>
         </div>
       </div>
     </div>
     <nav id="navlinks">
-      <a href="#about">ABOUT</a>
-      <a href="#2d">2D</a>
-      <a href="#3d">3D</a>
-      <a href="#props">STAGE PROPS</a>
-      <a href="#links">COOL LINKS</a>
-      <a href="#contact">CONTACT</a>
+      <a href="#about" data-panel="about">ABOUT</a>
+      <a href="#2d" data-panel="2d">2D</a>
+      <a href="#3d" data-panel="3d">3D</a>
+      <a href="#props" data-panel="props">STAGE PROPS</a>
+      <a href="#links" data-panel="links">COOL LINKS</a>
+      <a href="#contact" data-panel="contact">CONTACT</a>
     </nav>
   </div>
 
@@ -436,11 +425,11 @@
         <a href="#about">About Me</a><br>
         <span style="color:#555555; font-size:10px;">visit</span><br>
         <a href="#links" style="font-size:13px; font-weight:bold; color:#FF6600; text-decoration:none;">my links</a><br>
-        <a href="#" style="font-size:10px;">back to top</a>
+        <a href="#home" style="font-size:10px;">back to top</a>
       </div>
     </aside>
 
-    <!-- Main -->
+    <!-- Main content -->
     <main id="main">
 
       <div id="logo">
@@ -448,121 +437,169 @@
         <div class="tagline">Multi, Multimedia Designer &bull; Hard to Pin Down</div>
       </div>
 
-      <div style="text-align:center; font-size:12px; color:#333333; margin-bottom:4px;">
-        To find the work, choose a medium:
-      </div>
-
-      <div id="icon-nav">
-        <div class="icon-cell"><a href="#2d"><img class="ico" src="images/desktop_old_1.png" alt="2D">2D</a></div>
-        <div class="icon-cell"><a href="#3d"><img class="ico" src="images/ole_0.png" alt="3D">3D</a></div>
-        <div class="icon-cell"><a href="#props"><img class="ico" src="images/paint_old_0.png" alt="Stage Props">Stage Props</a></div>
-        <div class="icon-cell"><a href="#links"><img class="ico" src="images/search_web_0.png" alt="Cool Links">Cool Links</a></div>
-      </div>
-
-      <hr class="divider">
-
-      <div id="two-col">
-        <div class="col col-left">
-
-          <div id="about">
+      <!-- ═══════ HOME PANEL ═══════ -->
+      <div class="panel active" id="panel-home">
+        <div style="text-align:center; font-size:12px; color:#333333; margin-bottom:4px;">
+          To find the work, choose a medium:
+        </div>
+        <div id="icon-nav">
+          <div class="icon-cell"><a href="#2d"><img class="ico" src="images/desktop_old_1.png" alt="2D">2D</a></div>
+          <div class="icon-cell"><a href="#3d"><img class="ico" src="images/ole_0.png" alt="3D">3D</a></div>
+          <div class="icon-cell"><a href="#props"><img class="ico" src="images/paint_old_0.png" alt="Stage Props">Stage Props</a></div>
+          <div class="icon-cell"><a href="#links"><img class="ico" src="images/search_web_0.png" alt="Cool Links">Cool Links</a></div>
+        </div>
+        <hr class="divider">
+        <div class="two-col">
+          <div class="col col-left">
             <div class="section-head">About</div>
             <p style="line-height:1.5;">
-              Multi, multimedia designer with a difficult time sitting still. Works across 2D, 3D, and physical fabrication &mdash; whatever the project needs. Based somewhere on the internet.
+              Multi, multimedia designer with a difficult time sitting still. Works across 2D, 3D, and physical fabrication &mdash; whatever the project needs.
             </p>
+            <p style="margin-top:6px;"><a href="#about">Full bio &raquo;</a></p>
           </div>
-
-          <hr class="divider">
-
-          <div id="2d">
-            <div class="section-head">2D Work</div>
-            <p style="line-height:1.5; margin-bottom:6px;">Illustration, print, digital &mdash; flat things.</p>
-            <ul class="link-list">
-              <li><a href="#">Coming soon</a></li>
-            </ul>
-          </div>
-
-          <hr class="divider">
-
-          <div id="3d">
-            <div class="section-head">3D Work</div>
-            <p style="line-height:1.5; margin-bottom:6px;">Modeling, rendering, things with depth.</p>
-            <ul class="link-list">
-              <li><a href="#">Coming soon</a></li>
-            </ul>
-          </div>
-
-        </div>
-        <div class="col col-right">
-
-          <div id="props">
-            <div class="section-head">Stage Props</div>
-            <p style="line-height:1.5; margin-bottom:6px;">Physical builds, fabrication, things you can touch.</p>
-            <ul class="link-list">
-              <li><a href="#">Coming soon</a></li>
-            </ul>
-          </div>
-
-          <hr class="divider">
-
-          <div id="links">
+          <div class="col col-right">
             <div class="section-head">Cool Links</div>
             <ul class="link-list">
-              <li>
-                <a href="https://www.spacejam.com/1996/" target="_blank">Space Jam (1996)</a><br>
-                <span style="color:#666666; font-size:10px;">Still up. Still perfect.</span>
-              </li>
-              <li>
-                <a href="https://www.maxon.net" target="_blank">Maxon</a><br>
-                <span style="color:#666666; font-size:10px;">Cinema 4D. You know why.</span>
-              </li>
-              <li>
-                <a href="https://www.alz.org" target="_blank">Alzheimer's Association</a><br>
-                <span style="color:#666666; font-size:10px;">Not a joke. Just helpful.</span>
-              </li>
-              <li>
-                <a href="https://www.bargeadhesive.com" target="_blank">Barge Contact Cement</a><br>
-                <span style="color:#666666; font-size:10px;">The only adhesive that matters.</span>
-              </li>
-              <li>
-                <a href="https://www.xacto.com" target="_blank">X-Acto</a><br>
-                <span style="color:#666666; font-size:10px;">Blades. Obviously.</span>
-              </li>
+              <li><a href="https://www.spacejam.com/1996/" target="_blank">Space Jam (1996)</a></li>
+              <li><a href="https://www.maxon.net" target="_blank">Maxon</a></li>
+              <li><a href="https://www.alz.org" target="_blank">Alzheimer's Association</a></li>
             </ul>
+            <p style="margin-top:5px;"><a href="#links">All links &raquo;</a></p>
           </div>
-
+        </div>
+        <div id="partners">
+          <h3>Tools &amp; Supplies:</h3>
+          <div id="partner-grid">
+            <div class="partner-cell" style="color:#CC0000;">Maxon</div>
+            <div class="partner-cell" style="color:#000066;">Adobe</div>
+            <div class="partner-cell" style="color:#336699;">Barge</div>
+            <div class="partner-cell" style="color:#FF6600;">X-Acto</div>
+            <div class="partner-cell" style="color:#006600;">alz.org</div>
+            <div class="partner-cell" style="color:#660000; font-size:10px;">Space Jam '96</div>
+          </div>
+        </div>
+        <div id="cta">
+          <strong>Are you looking to:</strong>
+          <div id="cta-links">
+            <span>&#9679;&nbsp;<a href="#2d">see 2D work</a></span>
+            <span>&#9679;&nbsp;<a href="#3d">see 3D work</a></span>
+            <span>&#9679;&nbsp;<a href="#props">see stage props</a></span>
+            <span>&#9679;&nbsp;<a href="#contact">get in touch</a></span>
+          </div>
         </div>
       </div>
 
-      <div id="partners">
-        <h3>Tools &amp; Supplies:</h3>
-        <div id="partner-grid">
-          <div class="partner-cell" style="color:#CC0000;">Maxon</div>
-          <div class="partner-cell" style="color:#000066;">Adobe</div>
-          <div class="partner-cell" style="color:#336699;">Barge</div>
-          <div class="partner-cell" style="color:#FF6600;">X-Acto</div>
-          <div class="partner-cell" style="color:#006600;">alz.org</div>
-          <div class="partner-cell" style="color:#660000; font-size:10px;">Space Jam '96</div>
-        </div>
+      <!-- ═══════ ABOUT PANEL ═══════ -->
+      <div class="panel" id="panel-about">
+        <div class="section-head">About</div>
+        <p style="line-height:1.6;">
+          Multi, multimedia designer with a difficult time sitting still. Works across 2D, 3D, and physical fabrication &mdash; whatever the project needs. Based somewhere on the internet.
+        </p>
       </div>
 
-      <div id="cta">
-        <strong>Are you looking to:</strong>
-        <div id="cta-links">
-          <span>&#9679;&nbsp;<a href="#2d">see 2D work</a></span>
-          <span>&#9679;&nbsp;<a href="#3d">see 3D work</a></span>
-          <span>&#9679;&nbsp;<a href="#props">see stage props</a></span>
-          <span>&#9679;&nbsp;<a href="#contact">get in touch</a></span>
-        </div>
+      <!-- ═══════ 2D PANEL ═══════ -->
+      <div class="panel" id="panel-2d">
+        <div class="section-head">2D Work</div>
+        <p style="line-height:1.5; margin-bottom:8px;">Illustration, print, digital &mdash; flat things.</p>
+        <ul class="link-list">
+          <li><a href="#">Coming soon</a></li>
+        </ul>
       </div>
 
-      <div id="footer" id="contact">
+      <!-- ═══════ 3D PANEL ═══════ -->
+      <div class="panel" id="panel-3d">
+        <div class="section-head">3D Work</div>
+        <p style="line-height:1.5; margin-bottom:8px;">Modeling, rendering, things with depth.</p>
+        <ul class="link-list">
+          <li><a href="#">Coming soon</a></li>
+        </ul>
+      </div>
+
+      <!-- ═══════ STAGE PROPS PANEL ═══════ -->
+      <div class="panel" id="panel-props">
+        <div class="section-head">Stage Props</div>
+        <p style="line-height:1.5; margin-bottom:8px;">Physical builds, fabrication, things you can touch.</p>
+        <ul class="link-list">
+          <li><a href="#">Coming soon</a></li>
+        </ul>
+      </div>
+
+      <!-- ═══════ LINKS PANEL ═══════ -->
+      <div class="panel" id="panel-links">
+        <div class="section-head">Cool Links</div>
+        <ul class="link-list">
+          <li>
+            <a href="https://www.spacejam.com/1996/" target="_blank">Space Jam (1996)</a><br>
+            <span style="color:#666666; font-size:10px;">Still up. Still perfect.</span>
+          </li>
+          <li>
+            <a href="https://www.maxon.net" target="_blank">Maxon</a><br>
+            <span style="color:#666666; font-size:10px;">Cinema 4D. You know why.</span>
+          </li>
+          <li>
+            <a href="https://www.alz.org" target="_blank">Alzheimer's Association</a><br>
+            <span style="color:#666666; font-size:10px;">Not a joke. Just helpful.</span>
+          </li>
+          <li>
+            <a href="https://www.bargeadhesive.com" target="_blank">Barge Contact Cement</a><br>
+            <span style="color:#666666; font-size:10px;">The only adhesive that matters.</span>
+          </li>
+          <li>
+            <a href="https://www.xacto.com" target="_blank">X-Acto</a><br>
+            <span style="color:#666666; font-size:10px;">Blades. Obviously.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ═══════ CONTACT PANEL ═══════ -->
+      <div class="panel" id="panel-contact">
+        <div class="section-head">Contact</div>
+        <p style="line-height:1.6;"><a href="mailto:">Send an email</a></p>
+      </div>
+
+      <div id="footer">
         &#169; Keith. Multi, multimedia designer with a difficult time sitting still.
-        <a href="mailto:">Contact me</a>.
+        <a href="#contact">Contact</a>.
       </div>
 
     </main>
   </div>
 
 </div>
+
+<script>
+  var PANELS = ['home','about','2d','3d','props','links','contact'];
+
+  function showPanel(id) {
+    if (PANELS.indexOf(id) === -1) id = 'home';
+
+    PANELS.forEach(function(p) {
+      var el = document.getElementById('panel-' + p);
+      if (el) el.classList.remove('active');
+    });
+    var target = document.getElementById('panel-' + id);
+    if (target) target.classList.add('active');
+
+    document.querySelectorAll('#navlinks a').forEach(function(a) {
+      a.classList.toggle('active', a.dataset.panel === id);
+    });
+
+    var sel = document.getElementById('nav-select');
+    if (sel) sel.value = PANELS.indexOf(id) !== -1 ? id : 'home';
+  }
+
+  function routeFromHash() {
+    var hash = location.hash.replace('#', '') || 'home';
+    showPanel(hash);
+    window.scrollTo(0, 0);
+  }
+
+  document.getElementById('nav-select').addEventListener('change', function() {
+    location.hash = this.value;
+  });
+
+  window.addEventListener('hashchange', routeFromHash);
+  document.addEventListener('DOMContentLoaded', routeFromHash);
+</script>
 </body>
 </html>
