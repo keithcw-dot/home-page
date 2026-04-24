@@ -28,10 +28,8 @@
 - [x] Replace icon nav emoji with real Win98 icons (desktop_old=2D, ole=3D, paint=Stage Props, search_web=Cool Links)
 - [x] Replace About Me silhouette with `address_book_user.png`
 - [x] Replace AIM ad block with 1998 Google logo
-- [ ] Replace remaining emoji (logo area, sidebar bottom links, inline) with Win98 icons as sourced
-- [ ] Source a Win98-style icon for Stage Props that fits better than paint bucket (optional)
-- [ ] Consider placing `multimedia_0.png` next to the site title in the logo area
-- [ ] Reconsider / rename "Keith's Home on the Web" site title
+- [x] Consider placing `multimedia_0.png` next to the site title in the logo area
+- [x] Reconsider / rename "Keith's Home on the Web" site title — replaced with custom banner `header-01.png`
 
 ## Structure
 
