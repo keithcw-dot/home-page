@@ -24,15 +24,14 @@
 
 ## Icons
 
-- [ ] Replace all emoji with Windows 98 / early-web style icons throughout
-  - Icon nav (2D, 3D, Stage Props, Cool Links)
-  - Sidebar (About Me avatar, links at bottom)
-  - Logo icon
-  - Any other emoji used inline
-- [ ] Build `<img>`-based icon system so swapping emoji → real images is a one-liner per icon
-  - Suggested: `<img class="ico" src="images/icons/foo.png" alt="foo">` everywhere an emoji `ico` span exists now
-  - Icons folder: `images/icons/`
-- [ ] Source or recreate Windows 98-era icon set (16×16 or 32×32 .png)
+- [x] Build `<img class="ico">` icon system with `image-rendering: pixelated` for crisp scaling
+- [x] Replace icon nav emoji with real Win98 icons (desktop_old=2D, ole=3D, paint=Stage Props, search_web=Cool Links)
+- [x] Replace About Me silhouette with `address_book_user.png`
+- [x] Replace AIM ad block with 1998 Google logo
+- [ ] Replace remaining emoji (logo area, sidebar bottom links, inline) with Win98 icons as sourced
+- [ ] Source a Win98-style icon for Stage Props that fits better than paint bucket (optional)
+- [ ] Consider placing `multimedia_0.png` next to the site title in the logo area
+- [ ] Reconsider / rename "Keith's Home on the Web" site title
 
 ## Structure
 

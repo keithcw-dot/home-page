@@ -172,6 +172,14 @@
     }
     .icon-cell a:hover { color: #CC0000; text-decoration: none; }
     .ico { font-size: 32px; display: block; margin-bottom: 3px; }
+    img.ico {
+      width: 32px;
+      height: 32px;
+      display: block;
+      margin: 0 auto 3px;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
 
     /* ── Two-column content ── */
     #two-col {
@@ -385,10 +393,10 @@
     <!-- Sidebar -->
     <aside id="sidebar">
       <div class="sbox">
-        <div class="sbox-body" style="text-align:center; line-height:1.6;">
-          <span style="color:#003399; font-weight:bold; font-size:12px;">try </span><span style="color:#FF6600; font-weight:bold; font-size:14px;">AIM</span>
-          <span style="color:#CC0000; font-weight:bold; font-size:11px;"> FREE!</span><br>
-          <input type="button" value="go!" style="font-size:10px; background:#336699; color:#FFFFFF; border:1px solid #003399; padding:1px 10px; cursor:pointer; margin-top:2px;">
+        <div class="sbox-body" style="text-align:center; padding:6px 4px;">
+          <a href="https://www.google.com" target="_blank">
+            <img src="images/Google-Logo-19981-2048x1152.png" alt="Google" style="width:100%; max-width:120px; display:block; margin:0 auto;">
+          </a>
         </div>
       </div>
 
@@ -407,7 +415,7 @@
       <div class="sbox">
         <div class="sbox-title">ABOUT ME</div>
         <div class="sbox-body" style="text-align:center; line-height:1.5;">
-          <div style="font-size:36px; margin:3px 0;">&#128100;</div>
+          <img src="images/address_book_user.png" alt="Keith" style="width:32px; height:32px; image-rendering:pixelated; image-rendering:crisp-edges; margin:3px auto; display:block;">
           <b>Keith</b><br>
           Multi, multimedia<br>designer<br>
           <hr style="border:none; border-top:1px solid #DDDDDD; margin:4px 0;">
@@ -445,10 +453,10 @@
       </div>
 
       <div id="icon-nav">
-        <div class="icon-cell"><a href="#2d"><span class="ico">&#127912;</span>2D</a></div>
-        <div class="icon-cell"><a href="#3d"><span class="ico">&#128253;</span>3D</a></div>
-        <div class="icon-cell"><a href="#props"><span class="ico">&#127917;</span>Stage Props</a></div>
-        <div class="icon-cell"><a href="#links"><span class="ico">&#128279;</span>Cool Links</a></div>
+        <div class="icon-cell"><a href="#2d"><img class="ico" src="images/desktop_old_1.png" alt="2D">2D</a></div>
+        <div class="icon-cell"><a href="#3d"><img class="ico" src="images/ole_0.png" alt="3D">3D</a></div>
+        <div class="icon-cell"><a href="#props"><img class="ico" src="images/paint_old_0.png" alt="Stage Props">Stage Props</a></div>
+        <div class="icon-cell"><a href="#links"><img class="ico" src="images/search_web_0.png" alt="Cool Links">Cool Links</a></div>
       </div>
 
       <hr class="divider">
