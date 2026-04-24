@@ -257,6 +257,27 @@
       flex-wrap: wrap;
     }
 
+    /* ── Project grid ── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .project-card { font-size: 11px; }
+    .project-thumb {
+      background: #CCCCCC;
+      border: 1px solid #999999;
+      color: #666666;
+      font-size: 10px;
+      text-align: center;
+      line-height: 90px;
+      height: 90px;
+      margin-bottom: 4px;
+    }
+    .project-title { font-weight: bold; margin-bottom: 2px; }
+    .project-caption { font-style: italic; color: #666666; }
+
     /* ── Footer ── */
     #footer {
       font-size: 10px;
@@ -321,6 +342,7 @@
       .col-right { padding-left: 0; padding-top: 10px; }
 
       #partner-grid { grid-template-columns: repeat(3, 1fr); }
+      .project-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -420,13 +442,6 @@
         </div>
       </div>
 
-      <div style="text-align:center; margin-top:4px; font-size:11px; line-height:2;">
-        <div style="font-size:30px;">&#128218;</div>
-        <a href="#about">About Me</a><br>
-        <span style="color:#555555; font-size:10px;">visit</span><br>
-        <a href="#links" style="font-size:13px; font-weight:bold; color:#FF6600; text-decoration:none;">my links</a><br>
-        <a href="#home" style="font-size:10px;">back to top</a>
-      </div>
     </aside>
 
     <!-- Main content -->
@@ -450,64 +465,18 @@
         <hr class="divider">
         <div class="two-col">
           <div class="col col-left">
-
             <div class="section-head">About</div>
-            <p style="line-height:1.5;">
-              Multi, multimedia designer with a difficult time sitting still. Works across 2D, 3D, and physical fabrication &mdash; whatever the project needs. Based somewhere on the internet.
-            </p>
+            <p style="line-height:1.5;">Works in whatever dimension the job calls for — flat, volumetric, or built. Rarely just one.</p>
             <p style="margin-top:5px;"><a href="#about">Full bio &raquo;</a></p>
-
-            <hr class="divider">
-
-            <div class="section-head">2D Work</div>
-            <p style="line-height:1.5; margin-bottom:6px;">Illustration, print, digital &mdash; flat things.</p>
-            <ul class="link-list">
-              <li><a href="#2d">Coming soon &raquo;</a></li>
-            </ul>
-
-            <hr class="divider">
-
-            <div class="section-head">3D Work</div>
-            <p style="line-height:1.5; margin-bottom:6px;">Modeling, rendering, things with depth.</p>
-            <ul class="link-list">
-              <li><a href="#3d">Coming soon &raquo;</a></li>
-            </ul>
-
           </div>
           <div class="col col-right">
-
-            <div class="section-head">Stage Props</div>
-            <p style="line-height:1.5; margin-bottom:6px;">Physical builds, fabrication, things you can touch.</p>
-            <ul class="link-list">
-              <li><a href="#props">Coming soon &raquo;</a></li>
-            </ul>
-
-            <hr class="divider">
-
             <div class="section-head">Cool Links</div>
             <ul class="link-list">
-              <li>
-                <a href="https://www.spacejam.com/1996/" target="_blank">Space Jam (1996)</a><br>
-                <span style="color:#666666; font-size:10px;">Still up. Still perfect.</span>
-              </li>
-              <li>
-                <a href="https://www.maxon.net" target="_blank">Maxon</a><br>
-                <span style="color:#666666; font-size:10px;">Cinema 4D. You know why.</span>
-              </li>
-              <li>
-                <a href="https://www.alz.org" target="_blank">Alzheimer's Association</a><br>
-                <span style="color:#666666; font-size:10px;">Not a joke. Just helpful.</span>
-              </li>
-              <li>
-                <a href="https://www.bargeadhesive.com" target="_blank">Barge Contact Cement</a><br>
-                <span style="color:#666666; font-size:10px;">The only adhesive that matters.</span>
-              </li>
-              <li>
-                <a href="https://www.xacto.com" target="_blank">X-Acto</a><br>
-                <span style="color:#666666; font-size:10px;">Blades. Obviously.</span>
-              </li>
+              <li><a href="https://www.spacejam.com/1996/" target="_blank">Space Jam (1996)</a></li>
+              <li><a href="https://www.maxon.net" target="_blank">Maxon</a></li>
+              <li><a href="https://www.alz.org" target="_blank">Alzheimer's Association</a></li>
             </ul>
-
+            <p style="margin-top:5px;"><a href="#links">see all links &raquo;</a></p>
           </div>
         </div>
         <div id="partners">
@@ -521,50 +490,88 @@
             <div class="partner-cell" style="color:#660000; font-size:10px;">Space Jam '96</div>
           </div>
         </div>
-        <div id="cta">
-          <strong>Are you looking to:</strong>
-          <div id="cta-links">
-            <span>&#9679;&nbsp;<a href="#2d">see 2D work</a></span>
-            <span>&#9679;&nbsp;<a href="#3d">see 3D work</a></span>
-            <span>&#9679;&nbsp;<a href="#props">see stage props</a></span>
-            <span>&#9679;&nbsp;<a href="#contact">get in touch</a></span>
-          </div>
-        </div>
       </div>
 
       <!-- ═══════ ABOUT PANEL ═══════ -->
       <div class="panel" id="panel-about">
-        <div class="section-head">About</div>
-        <p style="line-height:1.6;">
-          Multi, multimedia designer with a difficult time sitting still. Works across 2D, 3D, and physical fabrication &mdash; whatever the project needs. Based somewhere on the internet.
-        </p>
+        <div class="section-head">Background</div>
+        <p style="line-height:1.6; margin-bottom:10px;">"Multi, multimedia" isn't a redundancy — it's a job description. The work moves between print, screen, and physical fabrication depending on what the project actually needs. This has made focus difficult and the toolkit unusually wide.</p>
+        <div class="section-head">Tools of the Trade</div>
+        <p style="line-height:1.6; margin-bottom:10px;">Cinema 4D for 3D. Adobe for most everything flat. Barge contact cement and X-Acto blades for things that need to exist in a room. Other tools as required, none particularly precious about it.</p>
+        <div class="section-head">Elsewhere</div>
+        <ul class="link-list">
+          <li><a href="#">GitHub</a> <em style="color:#888888; font-size:10px;">[add real URL]</em></li>
+          <li><a href="mailto:"><em>[add real email]</em></a></li>
+        </ul>
       </div>
 
       <!-- ═══════ 2D PANEL ═══════ -->
       <div class="panel" id="panel-2d">
         <div class="section-head">2D Work</div>
-        <p style="line-height:1.5; margin-bottom:8px;">Illustration, print, digital &mdash; flat things.</p>
-        <ul class="link-list">
-          <li><a href="#">Coming soon</a></li>
-        </ul>
+        <p style="line-height:1.5; margin-bottom:4px;">Illustration, print, digital &mdash; flat things.</p>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 01</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 02</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 03</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+        </div>
       </div>
 
       <!-- ═══════ 3D PANEL ═══════ -->
       <div class="panel" id="panel-3d">
         <div class="section-head">3D Work</div>
-        <p style="line-height:1.5; margin-bottom:8px;">Modeling, rendering, things with depth.</p>
-        <ul class="link-list">
-          <li><a href="#">Coming soon</a></li>
-        </ul>
+        <p style="line-height:1.5; margin-bottom:4px;">Modeling, rendering, things with depth.</p>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 01</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 02</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 03</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+        </div>
       </div>
 
       <!-- ═══════ STAGE PROPS PANEL ═══════ -->
       <div class="panel" id="panel-props">
         <div class="section-head">Stage Props</div>
-        <p style="line-height:1.5; margin-bottom:8px;">Physical builds, fabrication, things you can touch.</p>
-        <ul class="link-list">
-          <li><a href="#">Coming soon</a></li>
-        </ul>
+        <p style="line-height:1.5; margin-bottom:4px;">Physical builds, fabrication, things you can touch.</p>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 01</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 02</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">[image]</div>
+            <div class="project-title">Project 03</div>
+            <div class="project-caption">[placeholder &mdash; description goes here]</div>
+          </div>
+        </div>
       </div>
 
       <!-- ═══════ LINKS PANEL ═══════ -->
@@ -597,7 +604,12 @@
       <!-- ═══════ CONTACT PANEL ═══════ -->
       <div class="panel" id="panel-contact">
         <div class="section-head">Contact</div>
-        <p style="line-height:1.6;"><a href="mailto:">Send an email</a></p>
+        <p style="line-height:1.6; margin-bottom:8px;">Best way to reach me:</p>
+        <ul class="link-list">
+          <li><a href="mailto:"><em>[add real email]</em></a></li>
+          <li><a href="#">GitHub</a> <em style="color:#888888; font-size:10px;">[add real URL]</em></li>
+          <li><a href="#">LinkedIn</a> <em style="color:#888888; font-size:10px;">[add real URL]</em></li>
+        </ul>
       </div>
 
       <div id="footer">
