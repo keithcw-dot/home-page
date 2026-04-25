@@ -1,0 +1,17 @@
+{
+  "2d": [
+    { "id": "project-01", "title": "Project 01", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
+    { "id": "project-02", "title": "Project 02", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
+    { "id": "project-03", "title": "Project 03", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" }
+  ],
+  "3d": [
+    { "id": "project-01", "title": "Project 01", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
+    { "id": "project-02", "title": "Project 02", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
+    { "id": "project-03", "title": "Project 03", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" }
+  ],
+  "props": [
+    { "id": "project-01", "title": "Project 01", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
+    { "id": "project-02", "title": "Project 02", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
+    { "id": "project-03", "title": "Project 03", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" }
+  ]
+}
