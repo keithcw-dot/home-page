@@ -10,7 +10,7 @@
     { "id": "project-03", "title": "Project 03", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" }
   ],
   "props": [
-    { "id": "project-01", "title": "Project 01", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
+    { "id": "prop_smaug", "title": "Smaug", "year": "2024", "blurb": "A six foot Smaug with movable lower jaw for a youth theatre production of The Hobbit.", "thumb": "" },
     { "id": "project-02", "title": "Project 02", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" },
     { "id": "project-03", "title": "Project 03", "year": "", "blurb": "[placeholder — description goes here]", "thumb": "" }
   ]
